@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muslim Go Learning (MusGo)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           DESAIN TAMBAHAN MODERN & PROFESIONAL UNTUK LANDING PAGE (INDEX.HTML)
+           ========================================================================== */
+        
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigasi Samping Atas (Navbar) */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+        }
+        .logo {
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            font-size: 1.6rem;
+            color: var(--primary, #2E7D32);
+        }
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #475569;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: var(--primary, #2E7D32);
+        }
+
+        /* Jarak Antar Section */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* Tipografi Judul Section */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: #64748b;
+            max-width: 650px;
+            margin-bottom: 50px;
+            line-height: 1.6;
+        }
+
+        /* 1. Hero Section */
+        .hero {
+            background: radial-gradient(100% 100% at 50% 0%, rgba(232, 245, 233, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+            padding: 120px 0 80px 0;
+        }
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero-text h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+        .hero-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04);
+            transition: transform 0.4s ease;
+        }
+        .hero-img img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Desain Tombol Premium */
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary {
+            background-color: var(--primary, #2E7D32);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary, #66BB6A);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(46, 125, 50, 0.25);
+        }
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            border-color: #cbd5e1;
+        }
+
+        /* 2. Masalah Section */
+        .bg-light {
+            background-color: #f1f5f9;
+        }
+        .card-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.06), 0 10px 10px -5px rgba(0,0,0,0.02);
+            border-color: var(--secondary, #66BB6A);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* 3. Solusi Section */
+        .flex-row-reverse {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 60px;
+        }
+        .solusi-text, .solusi-img {
+            flex: 1;
+        }
+        .solusi-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08);
+        }
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+        .benefit-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+        .benefit-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary, #2E7D32);
+            font-weight: 900;
+            font-size: 1.2rem;
+        }
+
+        /* 4. Fitur Section */
+        .card-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        /* 5. Akses Produk Section */
+        .akses {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            box-shadow: 0 10px 15px -3px rgba(46, 125, 50, 0.05);
+        }
+        .akses .section-title {
+            color: #0c4314;
+        }
+        .akses .section-subtitle {
+            color: #2e5a34;
+            margin-bottom: 30px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 6. Tim Section - Modern Horizontal Scroll (Mamanjang ke samping) */
+        .team-grid {
+            display: flex;
+            flex-wrap: nowrap; /* Memaksa konten menyamping, tidak turun ke bawah */
+            justify-content: flex-start;
+            gap: 24px;
+            overflow-x: auto; /* Mengaktifkan scroll horizontal */
+            padding: 10px 5px 30px 5px; /* Padding bawah untuk tempat scrollbar & shadow */
+            scroll-snap-type: x mandatory; /* Efek halus saat di scroll di HP */
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Kustomisasi Scrollbar agar Elegan dan Modern */
+        .team-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+        .team-grid::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .team-grid::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .team-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--primary, #2E7D32);
+        }
+
+        .team-card {
+            flex: 0 0 auto; /* Mencegah kartu mengecil (shrink) */
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px 20px;
+            width: 240px; /* Lebar kartu dibuat konsisten */
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            scroll-snap-align: center; /* Snap posisi kartu ke tengah saat digeser */
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -3px rgba(0,0,0,0.08);
+            border-color: var(--secondary, #66BB6A);
+        }
+        .team-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 4px solid #f1f5f9;
+            transition: border-color 0.3s ease;
+        }
+        .team-card:hover .team-img {
+            border-color: var(--secondary, #66BB6A);
+        }
+        .team-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+        .team-card p {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* 7. Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0;
+            border-top: 1px solid #1e293b;
+        }
+        footer h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        footer p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+        footer .footer-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE MOBILE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .hero-container, .flex-row-reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            .card-grid-3, .card-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .akses {
+                margin: 0 20px;
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <h1 class="logo">MusGo</h1>
+            <ul class="nav-links">
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#masalah">Masalah</a></li>
+                <li><a href="#solusi">Solusi</a></li>
+                <li><a href="#fitur">Fitur</a></li>
+                <li><a href="#akses">Akses</a></li>
+                <li><a href="#tim">Tim</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-text animate-on-scroll">
+                <h2>Belajar Fiqih Puasa Ramadhan Lebih Mudah, Interaktif, dan Menyenangkan</h2>
+                <p>Muslim Go Learning (MusGo) adalah aplikasi pembelajaran berbasis digital yang dirancang untuk membantu siswa memahami fiqih puasa Ramadhan secara sistematis, interaktif, dan menarik melalui materi, video edukasi, kuis, dan fitur latihan bacaan berbasis teknologi.</p>
+                <a href="#akses" class="btn btn-primary">Coba Sekarang</a>
+            </div>
+            <div class="hero-img animate-on-scroll">
+                <img src="https://i.ibb.co.com/TBSVFLTg/Chat-GPT-Image-20-Mei-2026-09-45-32.png" alt="Tampilan mockup aplikasi Muslim Go Learning (MusGo) yang menampilkan pembelajaran fiqih puasa Ramadhan secara interaktif">
+            </div>
+        </div>
+    </section>
+
+    <section id="masalah" class="masalah bg-light section-padding">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Permasalahan dalam Pembelajaran Fiqih Puasa</h2>
+            <p class="section-subtitle text-center animate-on-scroll">Pembelajaran fiqih puasa Ramadhan di kalangan siswa masih menghadapi berbagai kendala, baik dari segi metode penyampaian maupun media pembelajaran yang digunakan.</p>
+            <div class="card-grid-3 animate-on-scroll">
+                <div class="card">
+                    <h3>Pemahaman Rendah</h3>
+                    <p>Pemahaman siswa terhadap materi fiqih puasa seperti rukun, syarat, dan hal-hal yang membatalkan puasa masih tergolong rendah.</p>
+                </div>
+                <div class="card">
+                    <h3>Metode Konvensional</h3>
+                    <p>Metode pembelajaran yang digunakan masih konvensional sehingga kurang menarik dan kurang mampu meningkatkan minat belajar siswa.</p>
+                </div>
+                <div class="card">
+                    <h3>Kurangnya Media Digital</h3>
+                    <p>Kurangnya media pembelajaran digital yang interaktif, mudah diakses, and khusus membahas fiqih puasa Ramadhan secara sistematis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solusi" class="solusi section-padding">
+        <div class="container flex-row-reverse">
+            <div class="solusi-text animate-on-scroll">
+                <h2 class="section-title">Solusi Pembelajaran Fiqih Puasa yang Interaktif dan Modern</h2>
+                <p>Muslim Go Learning (MusGo) hadir sebagai aplikasi pembelajaran berbasis digital yang dirancang untuk membantu siswa memahami fiqih puasa Ramadhan secara lebih mudah, sistematis, dan menarik melalui kombinasi materi, multimedia, serta fitur interaktif.</p>
+                <ul class="benefit-list">
+                    <li>Membantu siswa memahami konsep fiqih puasa Ramadhan dengan lebih mudah dan terstruktur.</li>
+                    <li>Meningkatkan minat belajar melalui media pembelajaran yang interaktif dan tidak membosankan.</li>
+                    <li>Mempermudah penerapan ilmu fiqih dalam kehidupan sehari-hari sesuai dengan syariat Islam.</li>
+                </ul>
+            </div>
+            <div class="solusi-img animate-on-scroll">
+                <img src="https://i.ibb.co.com/qFWrzYZQ/Chat-GPT-Image-27-Apr-2026-20-35-01.png" alt="Tampilan mockup aplikasi Muslim Go Learning (MusGo) pada layar smartphone">
+            </div>
+        </div>
+    </section>
+
+    <section id="fitur" class="fitur bg-light section-padding">
+        <div class="container">
+            <h2 class="section-title text-center animate-on-scroll">Fitur Unggulan MusGo</h2>
+            <p class="section-subtitle text-center animate-on-scroll">Aplikasi kami dilengkapi dengan berbagai fitur interaktif yang dirancang untuk membantu siswa belajar secara lebih menyenangkan.</p>
+            <div class="card-grid-2 animate-on-scroll">
+                <div class="card">
+                    <h3>Modul Materi Interaktif</h3>
+                    <p>Menyajikan materi fiqih puasa Ramadhan secara lengkap dan sistematis, mulai dari pengertian, syarat, rukun, hingga hikmah puasa.</p>
+                </div>
+                <div class="card">
+                    <h3>Video Edukasi & Kisah Teladan</h3>
+                    <p>Menyediakan konten video pembelajaran dan kisah inspiratif untuk membantu siswa memahami materi dengan cara kontekstual.</p>
+                </div>
+                <div class="card">
+                    <h3>Kuis & Latihan Interaktif</h3>
+                    <p>Fitur evaluasi berupa kuis dan studi kasus untuk menguji pemahaman siswa terhadap materi yang telah dipelajari.</p>
+                </div>
+                <div class="card">
+                    <h3>Mini Games Pembelajaran</h3>
+                    <p>Fitur permainan edukatif seperti susun urutan dan pilah aktivitas yang membuat proses belajar menjadi tidak membosankan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="akses" class="section-padding text-center" style="background-color: #ffffff;">
+        <div class="akses container animate-on-scroll">
+            <h2 class="section-title">Akses & Coba Aplikasi</h2>
+            <p class="section-subtitle">Coba pengalaman belajar fiqih puasa Ramadhan yang lebih interaktif melalui aplikasi Muslim Go Learning (MusGo). Aplikasi dirancang untuk perangkat Android dan mudah digunakan oleh siswa maupun guru.</p>
+            <div class="btn-group">
+                <a href="https://kodular.app/QCS-FVU/file/d/contoh-link-aplikasi-anda/view" class="btn btn-primary" target="_blank">Download Aplikasi</a>
+                <a href="belajar.html" class="btn btn-secondary">Materi Belajar MusGo(Belajar)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tim" class="tim bg-light section-padding text-center">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Tim Pengembang MusGo</h2>
+            <p class="section-subtitle animate-on-scroll">Geser ke kanan untuk melihat profil tim kolaborator pengembangan media pembelajaran inovatif MusGo.</p>
+            <div class="team-grid animate-on-scroll">
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/k6zqhnpT/IMG-20251225-WA0095.jpg" alt="Foto Mujahidin Ali Husna" class="team-img">
+                    <h4>Mujahidin Ali Husna</h4>
+                    <p>Koordinator Proyek</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/351pycDZ/IMG-0105.jpg" alt="Foto Lathifa Laila" class="team-img">
+                    <h4>Lathifa Laila Isnani</h4>
+                    <p>Desainer UI/UX</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/7t2Q20WF/20251116-110101.jpg" alt="Foto Agnesia Devira" class="team-img">
+                    <h4>Agnesia Devira</h4>
+                    <p>Content Developer</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/zTKxVZCg/Whats-App-Image-2026-04-22-at-08-12-00.jpg" alt="Foto Tekto Zaidan Rizky" class="team-img">
+                    <h4>Tekto Zaidan Rizky</h4>
+                    <p>Programer</p>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.ibb.co.com/1G1zH31f/Whats-App-Image-2026-05-12-at-21-25-14.jpg" alt="Foto Muadzinul Ummah" class="team-img">
+                    <h4>Muadzinul Ummah</h4>
+                    <p>Evaluasi dan Pengujian</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <h3>Kelompok 4 – Ali Bin Abi Thalib</h3>
+            <p>Program Studi Pendidikan Agama Islam – Universitas Muhammadiyah Yogyakarta | 2026</p>
+            <p class="footer-note">Dikembangkan dalam Mata Kuliah Pengembangan Aplikasi Pembelajaran sebagai media pembelajaran fiqih puasa Ramadhan berbasis digital.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
